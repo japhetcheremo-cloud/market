@@ -2,26 +2,53 @@
 
 {% block content %}
 
-<div class="products">
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to Cheremo Promised Shop</h1>
+        <p>Find quality products at affordable prices.</p>
+        <a href="#products">
+            <button>Shop Now</button>
+        </a>
+    </div>
+</section>
+
+<div class="products" id="products">
 
 {% for product in products %}
 
 <div class="card">
 
-<img src="{{ product.image.url }}">
+    {% if product.price < 1000 %}
+        <span class="badge">SALE</span>
+    {% endif %}
 
-<h3>{{ product.name }}</h3>
+    <img src="{{ product.image.url }}" alt="{{ product.name }}">
 
-<p>{{ product.description }}</p>
+    <div class="card-content">
 
-<h2>Ksh {{ product.price }}</h2>
+        <h3>{{ product.name }}</h3>
 
-<a href="{% url 'buy_product' product.id %}">
-<button>Shop Now</button>
-</a>
+        <p>{{ product.description|truncatewords:15 }}</p>
 
-<button>Add To Cart</button>
+        <div class="price">
+            KSh {{ product.price }}
+        </div>
 
+        <a href="{% url 'buy_product' product.id %}">
+            <button>Buy Now</button>
+        </a>
+
+        <button>Add To Cart</button>
+
+    </div>
+
+</div>
+
+{% empty %}
+
+<div class="empty-products">
+    <h2>No Products Available</h2>
+    <p>Add products from the Django Admin Panel.</p>
 </div>
 
 {% endfor %}

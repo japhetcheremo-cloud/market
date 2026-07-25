@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <h2>Welcome Back</h2>
+        <p>Login to your account</p>
+
+        <a href="#" class="google-btn">
+            Continue with Google
+        </a>
+
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">
+                Login
+            </button>
+        </form>
+
+        <div class="auth-footer">
+            Don't have an account?
+            <a href="{% url 'signup' %}">Register</a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

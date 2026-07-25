@@ -1,3 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="redirect-container">
+
+    <div class="redirect-card">
+
+        <div class="loader"></div>
+
+        <h2>Redirecting to WhatsApp...</h2>
+
+        <p>
+            Your order is being prepared and you will be redirected
+            to WhatsApp shortly.
+        </p>
+
+    </div>
+
+</div>
+
 <script>
-window.location.href="{{ whatsapp_link }}"
+setTimeout(function(){
+    window.location.href="{{ whatsapp_link }}";
+},1000);
 </script>
+
+{% endblock %}

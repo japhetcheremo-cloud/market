@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <h1>Dashboard</h1>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <h3>Profile</h3>
+            <p>Manage your account</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Orders</h3>
+            <p>0 Orders</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Wishlist</h3>
+            <p>0 Items</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Status</h3>
+            <p>Active User</p>
+        </div>
+
+    </div>
+
+    <div class="dashboard-actions">
+
+        <a href="{% url 'profile' %}" class="dash-card">
+            My Profile
+        </a>
+
+        <a href="#" class="dash-card">
+            My Orders
+        </a>
+
+        <a href="#" class="dash-card">
+            Wishlist
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
