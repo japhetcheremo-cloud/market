@@ -21,7 +21,11 @@ SECRET_KEY = 'django-insecure-l^%7nowo+24^#=yclv4+vdl&^z#w1l09lsid5as@lbq1i+cd=u
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "cheremoshop-omega.vercel.app",
+]
 
 
 # --------------------------------------------------
