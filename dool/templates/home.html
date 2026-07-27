@@ -1,58 +1,277 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
-<section class="hero">
-    <div class="hero-content">
-        <h1>Welcome to Cheremo Promised Shop</h1>
-        <p>Find quality products at affordable prices.</p>
-        <a href="#products">
-            <button>Shop Now</button>
-        </a>
+<!-- ================= HERO ================= -->
+
+<section class="hero-container">
+
+    <!-- LEFT CATEGORIES -->
+
+    <div class="hero-categories">
+
+        <a href="#">📱 Phones</a>
+        <a href="#">💻 Electronics</a>
+        <a href="#">👕 Fashion</a>
+        <a href="#">👟 Shoes</a>
+        <a href="#">⌚ Accessories</a>
+        <a href="#">🛒 Groceries</a>
+        <a href="#">🪑 Furniture</a>
+        <a href="#">🎮 Gaming</a>
+
     </div>
-</section>
+<!-- CENTER SLIDER -->
 
-<div class="products" id="products">
+<div class="hero-slider">
 
-{% for product in products %}
+    <!-- Slide 1 -->
+    <div class="slide active">
 
-<div class="card">
+        <img src="{% static 'images/banner1.png' %}" alt="Banner 1">
 
-    {% if product.price < 1000 %}
-        <span class="badge">SALE</span>
-    {% endif %}
+        <div class="slide-content">
 
-    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <h1>Welcome to Cheremo Promised Shop</h1>
 
-    <div class="card-content">
+            <p>Shop thousands of quality products at affordable prices.</p>
 
-        <h3>{{ product.name }}</h3>
+            <a href="#products">
+                <button class="shop-btn">Shop Now</button>
+            </a>
 
-        <p>{{ product.description|truncatewords:15 }}</p>
-
-        <div class="price">
-            KSh {{ product.price }}
         </div>
 
-        <a href="{% url 'buy_product' product.id %}">
-            <button>Buy Now</button>
-        </a>
+    </div>
 
-        <button>Add To Cart</button>
+    <!-- Slide 2 -->
+    <div class="slide">
+
+        <img src="{% static 'images/banner2.png' %}" alt="Banner 2">
+
+        <div class="slide-content">
+
+            <h1>Electronics Sale</h1>
+
+            <p>Get amazing discounts on phones, laptops and accessories.</p>
+
+            <a href="#products">
+                <button class="shop-btn">Shop Electronics</button>
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+
+        <img src="{% static 'images/banner3.png' %}" alt="Banner 3">
+
+        <div class="slide-content">
+
+            <h1>Latest Fashion</h1>
+
+            <p>Discover stylish clothing, shoes and accessories.</p>
+
+            <a href="#products">
+                <button class="shop-btn">Explore Fashion</button>
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+
+        <img src="{% static 'images/banner4.png' %}" alt="Banner 4">
+
+        <div class="slide-content">
+
+            <h1>Fresh Groceries</h1>
+
+            <p>Order fresh groceries and household essentials.</p>
+
+            <a href="#products">
+                <button class="shop-btn">Start Shopping</button>
+            </a>
+
+        </div>
 
     </div>
 
 </div>
 
-{% empty %}
+    <!-- RIGHT OFFERS -->
 
-<div class="empty-products">
-    <h2>No Products Available</h2>
-    <p>Add products from the Django Admin Panel.</p>
-</div>
+    <div class="hero-right">
 
-{% endfor %}
+        <div class="offer-card">
+            <h3>🚚 Free Delivery</h3>
+            <p>Selected Products</p>
+        </div>
 
-</div>
+        <div class="offer-card">
+            <h3>🔥 Flash Deals</h3>
+            <p>Up To 50% OFF</p>
+        </div>
+
+        <div class="offer-card">
+            <h3>💳 Secure Payments</h3>
+            <p>M-Pesa & Cards</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="categories-section">
+
+    <div class="section-header">
+
+        <h2>Shop by Category</h2>
+
+        <a href="#">View All →</a>
+
+    </div>
+
+    <div class="categories-grid">
+
+        <div class="category-card">
+            <div class="category-icon">📱</div>
+            <h3>Phones</h3>
+        </div>
+
+        <div class="category-card">
+            <div class="category-icon">💻</div>
+            <h3>Electronics</h3>
+        </div>
+
+        <div class="category-card">
+            <div class="category-icon">👕</div>
+            <h3>Fashion</h3>
+        </div>
+
+        <div class="category-card">
+            <div class="category-icon">👟</div>
+            <h3>Shoes</h3>
+        </div>
+
+        <div class="category-card">
+            <div class="category-icon">⌚</div>
+            <h3>Accessories</h3>
+        </div>
+
+        <div class="category-card">
+            <div class="category-icon">🛒</div>
+            <h3>Groceries</h3>
+        </div>
+
+        <div class="category-card">
+            <div class="category-icon">🪑</div>
+            <h3>Furniture</h3>
+        </div>
+
+        <div class="category-card">
+            <div class="category-icon">🎮</div>
+            <h3>Gaming</h3>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="products-section">
+
+    <div class="section-header">
+
+        <h2>🔥 Featured Products</h2>
+
+        <a href="#">View All →</a>
+
+    </div>
+
+    <div class="products" id="products">
+
+        {% for product in products %}
+
+        <div class="product-card">
+
+            {% if product.price < 1000 %}
+                <span class="discount-badge">
+                    SALE
+                </span>
+            {% endif %}
+
+            <div class="product-image">
+
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+
+                <button class="wishlist-btn">
+                    ❤
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>{{ product.name }}</h3>
+
+                <p>
+                    {{ product.description|truncatewords:12 }}
+                </p>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <div class="price">
+                    KSh {{ product.price }}
+                </div>
+
+                <div class="product-buttons">
+
+                    <a href="{% url 'buy_product' product.id %}">
+                        <button class="buy-btn">
+                            Buy Now
+                        </button>
+                    </a>
+
+                    <form action="{% url 'add_to_cart' product.id %}" method="post">
+
+    {% csrf_token %}
+
+    <button type="submit" class="cart-btn">
+        🛒 Add To Cart
+    </button>
+
+</form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="empty-products">
+
+            <h2>No Products Available</h2>
+
+            <p>Add products from the Admin Panel.</p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
 
 {% endblock %}

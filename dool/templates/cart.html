@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="cart-page">
+
+    <h1>🛒 My Shopping Cart</h1>
+
+    {% if cart_items %}
+
+    <table class="cart-table">
+
+        <thead>
+
+            <tr>
+
+                <th>Image</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for item in cart_items %}
+
+            <tr>
+
+                <td>
+
+                    <img src="{{ item.product.image.url }}"
+                         alt="{{ item.product.name }}">
+
+                </td>
+
+                <td>
+
+                    <h3>{{ item.product.name }}</h3>
+
+                    <p>{{ item.product.description|truncatewords:10 }}</p>
+
+                </td>
+
+                <td>
+
+                    <strong>KSh {{ item.product.price }}</strong>
+
+                </td>
+
+                <td>
+
+                    <div class="quantity-controls">
+
+                        <a href="{% url 'decrease_quantity' item.id %}">
+                            <button class="quantity-btn">−</button>
+                        </a>
+
+                        <span class="quantity-number">
+
+                            {{ item.quantity }}
+
+                        </span>
+
+                        <a href="{% url 'increase_quantity' item.id %}">
+                            <button class="quantity-btn">+</button>
+                        </a>
+
+                    </div>
+
+                </td>
+
+                <td>
+
+                    <h3>KSh {{ item.subtotal }}</h3>
+
+                    <br>
+
+                    <a href="{% url 'remove_from_cart' item.id %}">
+
+                        <button class="remove-btn">
+
+                            🗑 Remove
+
+                        </button>
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    <div class="cart-total">
+
+        <div>
+
+            <h2>Total: KSh {{ total }}</h2>
+
+            <p>{{ cart_items|length }} Item{{ cart_items|length|pluralize }} in your cart</p>
+
+        </div>
+
+        <a href="#">
+
+            <button class="checkout-btn">
+
+                💳 Proceed to Checkout
+
+            </button>
+
+        </a>
+
+    </div>
+
+    {% else %}
+
+    <div class="empty-cart">
+
+        <h2>🛒 Your cart is empty</h2>
+
+        <p>You haven't added any products yet.</p>
+
+        <a href="{% url 'home' %}">
+
+            <button>
+
+                Continue Shopping
+
+            </button>
+
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

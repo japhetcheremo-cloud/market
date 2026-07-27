@@ -1,0 +1,138 @@
+.checkout-page{
+    width:90%;
+    margin:40px auto;
+}
+
+.checkout-container{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:40px;
+}
+
+.product-preview{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.product-preview img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+}
+
+.product-info{
+    padding:30px;
+}
+
+.badge{
+    background:#e53935;
+    color:white;
+    padding:6px 15px;
+    border-radius:20px;
+    display:inline-block;
+    margin-bottom:15px;
+}
+
+.rating{
+    color:#ff9800;
+    margin:15px 0;
+}
+
+.price{
+    color:#e53935;
+    font-size:34px;
+    margin:15px 0;
+}
+
+.features{
+    margin-top:25px;
+}
+
+.features p{
+    margin:10px 0;
+}
+
+.checkout-right{
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.checkout-right h2{
+    margin-bottom:25px;
+}
+
+.checkout-right label{
+    display:block;
+    margin-top:18px;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.checkout-right input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+.order-summary{
+    margin-top:30px;
+    background:#f8f8f8;
+    padding:20px;
+    border-radius:10px;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    margin:12px 0;
+}
+
+.total{
+    font-size:20px;
+}
+
+.checkout-btn{
+    width:100%;
+    margin-top:25px;
+    padding:15px;
+    background:#25D366;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:17px;
+    cursor:pointer;
+}
+
+.mpesa-btn{
+    width:100%;
+    margin-top:15px;
+    padding:15px;
+    background:#00A651;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:17px;
+    cursor:pointer;
+}
+
+.checkout-btn:hover,
+.mpesa-btn:hover{
+    opacity:.9;
+}
+
+@media(max-width:900px){
+
+.checkout-container{
+grid-template-columns:1fr;
+}
+
+.product-preview img{
+height:300px;
+}
+
+}

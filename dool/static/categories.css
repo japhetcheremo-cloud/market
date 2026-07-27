@@ -1,0 +1,104 @@
+/* ===========================
+   CATEGORIES
+=========================== */
+
+.categories-section{
+
+    width:90%;
+    margin:40px auto;
+
+}
+
+.section-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.section-header h2{
+
+    font-size:30px;
+    color:#222;
+
+}
+
+.section-header a{
+
+    text-decoration:none;
+    color:#e53935;
+    font-weight:600;
+
+}
+
+.categories-grid{
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+.category-card{
+
+    background:white;
+
+    padding:30px 20px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.category-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 10px 25px rgba(229,57,53,.20);
+
+}
+
+.category-icon{
+
+    font-size:55px;
+
+    margin-bottom:15px;
+
+}
+
+.category-card h3{
+
+    color:#333;
+
+}
+
+@media(max-width:992px){
+
+.categories-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:600px){
+
+.categories-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}

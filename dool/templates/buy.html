@@ -1,59 +1,142 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
-<div class="buy-container">
+<section class="checkout-page">
 
-    <div class="product-section">
+    <div class="checkout-container">
 
-        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        <!-- LEFT SIDE -->
 
-        <div class="product-details">
-            <h1>{{ product.name }}</h1>
+        <div class="checkout-left">
 
-            <p>{{ product.description }}</p>
+            <div class="product-preview">
 
-            <h2 class="price">
-                KSh {{ product.price }}
-            </h2>
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+
+                <div class="product-info">
+
+                    <span class="badge">🔥 Best Seller</span>
+
+                    <h1>{{ product.name }}</h1>
+
+                    <div class="rating">
+                        ⭐⭐⭐⭐⭐ (4.9)
+                    </div>
+
+                    <h2 class="price">
+                        KSh {{ product.price }}
+                    </h2>
+
+                    <p>
+                        {{ product.description }}
+                    </p>
+
+                    <div class="features">
+
+                        <p>✅ Genuine Product</p>
+
+                        <p>🚚 Fast Delivery</p>
+
+                        <p>🔒 Secure Checkout</p>
+
+                        <p>💳 M-Pesa Accepted</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+
+        <div class="checkout-right">
+
+            <h2>Complete Your Order</h2>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <label>Full Name</label>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+                <label>Phone Number</label>
+
+                <input
+                    type="text"
+                    name="phone"
+                    placeholder="07XXXXXXXX"
+                    required
+                >
+
+                <label>Delivery Location</label>
+
+                <input
+                    type="text"
+                    name="location"
+                    placeholder="Town / Estate / Landmark"
+                    required
+                >
+
+                <div class="order-summary">
+
+                    <h3>Order Summary</h3>
+
+                    <div class="summary-row">
+                        <span>Product</span>
+                        <span>{{ product.name }}</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Quantity</span>
+                        <span>1</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Delivery</span>
+                        <span>FREE</span>
+                    </div>
+
+                    <hr>
+
+                    <div class="summary-row total">
+
+                        <strong>Total</strong>
+
+                        <strong>KSh {{ product.price }}</strong>
+
+                    </div>
+
+                </div>
+
+                <button class="checkout-btn" type="submit">
+
+                    🟢 Order via WhatsApp
+
+                </button>
+
+                <button type="button" class="mpesa-btn">
+
+                    💳 Pay with M-Pesa (Coming Soon)
+
+                </button>
+
+            </form>
+
         </div>
 
     </div>
 
-    <div class="checkout-form">
-
-        <h2>Complete Your Order</h2>
-
-        <form method="POST">
-
-            {% csrf_token %}
-
-            <input
-            type="text"
-            name="name"
-            placeholder="Full Name"
-            required>
-
-            <input
-            type="text"
-            name="phone"
-            placeholder="Phone Number"
-            required>
-
-            <input
-            type="text"
-            name="location"
-            placeholder="Town / Delivery Location"
-            required>
-
-            <button type="submit">
-                Order via WhatsApp
-            </button>
-
-        </form>
-
-    </div>
-
-</div>
+</section>
 
 {% endblock %}
