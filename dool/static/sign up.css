@@ -1,0 +1,199 @@
+/* ===========================
+   SIGNUP PAGE
+=========================== */
+
+.auth-container{
+    min-height:80vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+    background:#f5f5f5;
+}
+
+.auth-card{
+    width:100%;
+    max-width:450px;
+    background:#fff;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.auth-card h2{
+    text-align:center;
+    color:#222;
+    margin-bottom:8px;
+    font-size:30px;
+}
+
+.auth-card p{
+    text-align:center;
+    color:#777;
+    margin-bottom:25px;
+}
+
+/* Google Button */
+
+.google-btn{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    background:#fff;
+    color:#444;
+    border:2px solid #ddd;
+    padding:12px;
+    border-radius:8px;
+    font-weight:600;
+    margin-bottom:20px;
+    transition:.3s;
+}
+
+.google-btn:hover{
+    border-color:#e53935;
+    color:#e53935;
+}
+
+/* Divider */
+
+.divider{
+    text-align:center;
+    position:relative;
+    margin:20px 0;
+}
+
+.divider::before{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:0;
+    width:100%;
+    height:1px;
+    background:#ddd;
+}
+
+.divider span{
+    position:relative;
+    background:#fff;
+    padding:0 15px;
+    color:#777;
+}
+
+/* Form */
+
+.auth-card form p{
+    margin-bottom:18px;
+}
+
+.auth-card label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:600;
+    color:#333;
+}
+
+.auth-card input{
+    width:100%;
+    height:46px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    padding:0 15px;
+    font-size:15px;
+    transition:.3s;
+}
+
+.auth-card input:focus{
+    outline:none;
+    border-color:#e53935;
+    box-shadow:0 0 0 3px rgba(229,57,53,.12);
+}
+
+/* Help text */
+
+.helptext{
+    display:block;
+    margin-top:5px;
+    font-size:12px;
+    color:#777;
+}
+
+/* Error messages */
+
+.errorlist{
+    color:#e53935;
+    margin:5px 0 10px;
+    padding-left:18px;
+    font-size:13px;
+}
+
+/* Submit Button */
+
+.auth-card button{
+    width:100%;
+    border:none;
+    background:#e53935;
+    color:#fff;
+    padding:13px;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:10px;
+    transition:.3s;
+}
+
+.auth-card button:hover{
+    background:#c62828;
+}
+
+/* Footer */
+
+.auth-footer{
+    text-align:center;
+    margin-top:25px;
+    color:#555;
+}
+
+.auth-footer a{
+    color:#e53935;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.auth-footer a:hover{
+    text-decoration:underline;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.auth-container{
+    padding:20px 15px;
+}
+
+.auth-card{
+    padding:25px;
+}
+
+.auth-card h2{
+    font-size:24px;
+}
+
+.auth-card p{
+    font-size:14px;
+}
+
+.auth-card input{
+    height:42px;
+    font-size:14px;
+}
+
+.auth-card button{
+    padding:11px;
+    font-size:15px;
+}
+
+}

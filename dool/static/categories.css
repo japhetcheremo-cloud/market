@@ -3,102 +3,162 @@
 =========================== */
 
 .categories-section{
-
-    width:90%;
-    margin:40px auto;
-
+    width:95%;
+    max-width:1400px;
+    margin:35px auto;
 }
 
-.section-header{
+/* Section Title */
 
+.section-header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-
-    margin-bottom:25px;
-
+    margin-bottom:18px;
 }
 
 .section-header h2{
-
-    font-size:30px;
+    font-size:28px;
     color:#222;
-
 }
 
 .section-header a{
-
     text-decoration:none;
     color:#e53935;
     font-weight:600;
-
 }
+
+/* Categories Grid */
 
 .categories-grid{
-
     display:grid;
     grid-template-columns:repeat(4,1fr);
-
-    gap:20px;
-
+    gap:15px;
 }
 
+/* Category Card */
+
 .category-card{
-
-    background:white;
-
-    padding:30px 20px;
-
+    background:#fff;
+    padding:20px 12px;
     text-align:center;
-
-    border-radius:15px;
-
-    box-shadow:0 5px 18px rgba(0,0,0,.08);
-
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
     transition:.3s;
-
     cursor:pointer;
-
 }
 
 .category-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(229,57,53,.18);
+}
 
-    transform:translateY(-8px);
+/* Icon */
 
-    box-shadow:0 10px 25px rgba(229,57,53,.20);
+.category-icon{
+    font-size:42px;
+    margin-bottom:10px;
+}
 
+/* Title */
+
+.category-card h3{
+    color:#333;
+    font-size:18px;
+    font-weight:600;
+}
+
+/* ===========================
+   TABLETS
+=========================== */
+
+@media (max-width:992px){
+
+.categories-grid{
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+}
+
+.category-card{
+    padding:16px 10px;
 }
 
 .category-icon{
-
-    font-size:55px;
-
-    margin-bottom:15px;
-
+    font-size:34px;
 }
 
 .category-card h3{
-
-    color:#333;
+    font-size:15px;
+}
 
 }
 
-@media(max-width:992px){
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width:768px){
 
 .categories-grid{
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+}
 
-grid-template-columns:repeat(2,1fr);
+.category-card{
+    padding:12px 8px;
+    border-radius:10px;
+}
 
+.category-icon{
+    font-size:28px;
+    margin-bottom:6px;
+}
+
+.category-card h3{
+    font-size:12px;
+    line-height:1.2;
+}
+
+.section-header h2{
+    font-size:22px;
+}
+
+.section-header a{
+    font-size:13px;
 }
 
 }
 
-@media(max-width:600px){
+/* ===========================
+   VERY SMALL PHONES
+=========================== */
+
+@media (max-width:480px){
 
 .categories-grid{
+    grid-template-columns:repeat(4,1fr);
+    gap:6px;
+}
 
-grid-template-columns:1fr;
+.category-card{
+    padding:10px 5px;
+}
 
+.category-icon{
+    font-size:22px;
+    margin-bottom:5px;
+}
+
+.category-card h3{
+    font-size:10px;
+}
+
+.section-header h2{
+    font-size:20px;
+}
+
+.section-header a{
+    font-size:12px;
 }
 
 }

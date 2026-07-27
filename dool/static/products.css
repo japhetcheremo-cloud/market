@@ -1,226 +1,344 @@
+/* ===========================
+   PRODUCTS SECTION
+=========================== */
+
 .products-section{
-
-    width:90%;
-    margin:50px auto;
-
+    width:95%;
+    max-width:1400px;
+    margin:40px auto;
 }
 
 .products{
-
     display:grid;
-
-    grid-template-columns:repeat(auto-fill,minmax(270px,1fr));
-
-    gap:25px;
-
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
 }
 
 .product-card{
-
-    background:white;
-
-    border-radius:15px;
-
+    background:#fff;
+    border-radius:12px;
     overflow:hidden;
-
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
-
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
     transition:.3s;
-
 }
 
 .product-card:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:0 12px 30px rgba(0,0,0,.15);
-
+    transform:translateY(-5px);
+    box-shadow:0 12px 28px rgba(0,0,0,.15);
 }
 
 .product-image{
-
     position:relative;
-
-    height:250px;
-
+    height:180px;
+    overflow:hidden;
 }
 
 .product-image img{
-
     width:100%;
     height:100%;
-
     object-fit:cover;
+    transition:.3s;
+}
 
+.product-card:hover .product-image img{
+    transform:scale(1.05);
 }
 
 .discount-badge{
-
     position:absolute;
-
-    top:12px;
-    left:12px;
-
+    top:8px;
+    left:8px;
     background:#e53935;
-
-    color:white;
-
-    padding:6px 12px;
-
-    border-radius:30px;
-
-    font-size:12px;
-
-    font-weight:bold;
-
-    z-index:5;
-
+    color:#fff;
+    padding:4px 8px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:600;
 }
 
 .wishlist-btn{
-
     position:absolute;
-
-    top:12px;
-    right:12px;
-
-    width:42px;
-    height:42px;
-
+    top:8px;
+    right:8px;
+    width:36px;
+    height:36px;
     border:none;
-
     border-radius:50%;
-
-    background:white;
-
+    background:#fff;
     cursor:pointer;
-
-    font-size:18px;
-
+    font-size:16px;
+    box-shadow:0 2px 8px rgba(0,0,0,.2);
 }
 
 .product-info{
-
-    padding:18px;
-
+    padding:12px;
+    text-align:center;
 }
 
 .product-info h3{
-
-    margin-bottom:10px;
-
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:8px;
+    line-height:1.3;
 }
 
 .product-info p{
-
     color:#666;
-
-    min-height:45px;
-
-    margin-bottom:12px;
-
+    font-size:14px;
+    margin-bottom:8px;
+    line-height:1.4;
 }
 
 .rating{
-
     color:#f4b400;
-
-    margin-bottom:12px;
-
+    font-size:14px;
+    margin-bottom:8px;
 }
+
+/* PRICE */
 
 .price{
-
-    color:#e53935;
-
-    font-size:22px;
-
-    font-weight:bold;
-
-    margin-bottom:18px;
-
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    margin:8px 0;
+    line-height:1.1;
 }
 
+.price .currency{
+    font-size:10px;
+    color:#777;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.price .amount{
+    color:#e53935;
+    font-size:22px;
+    font-weight:700;
+}
+
+/* BUTTONS */
+
 .product-buttons{
-
     display:flex;
+    gap:8px;
+}
 
-    gap:10px;
-
+.buy-btn,
+.cart-btn{
+    flex:1;
+    border:none;
+    border-radius:8px;
+    padding:10px;
+    color:#fff;
+    cursor:pointer;
+    font-size:14px;
+    transition:.3s;
 }
 
 .buy-btn{
-
-    flex:1;
-
     background:#e53935;
-
-    color:white;
-
-    border:none;
-
-    padding:12px;
-
-    border-radius:8px;
-
-}
-
-.cart-btn{
-
-    flex:1;
-
-    background:#222;
-
-    color:white;
-
-    border:none;
-
-    padding:12px;
-
-    border-radius:8px;
-
 }
 
 .buy-btn:hover{
-
     background:#c62828;
+}
 
+.cart-btn{
+    background:#222;
 }
 
 .cart-btn:hover{
-
-    background:black;
-
+    background:#000;
 }
 
-@media(max-width:768px){
+/* ===========================
+   TABLETS
+=========================== */
+
+@media (max-width:992px){
 
 .products{
-
-grid-template-columns:repeat(2,1fr);
-
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
 }
 
 .product-image{
+    height:140px;
+}
 
-height:180px;
+.product-info{
+    padding:10px;
+}
 
+.product-info h3{
+    font-size:14px;
+}
+
+.product-info p{
+    display:none;
+}
+
+.rating{
+    font-size:12px;
+}
+
+.price{
+    margin:6px 0;
+}
+
+.price .currency{
+    font-size:8px;
+}
+
+.price .amount{
+    font-size:16px;
+}
+
+.buy-btn,
+.cart-btn{
+    padding:8px;
+    font-size:12px;
+}
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width:768px){
+
+.products{
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+}
+
+.product-card{
+    border-radius:10px;
+}
+
+.product-image{
+    height:90px;
+}
+
+.wishlist-btn{
+    width:28px;
+    height:28px;
+    font-size:12px;
+}
+
+.discount-badge{
+    font-size:8px;
+    padding:2px 5px;
+}
+
+.product-info{
+    padding:6px;
+}
+
+.product-info h3{
+    font-size:11px;
+    line-height:1.2;
+    margin-bottom:4px;
+    height:28px;
+    overflow:hidden;
+}
+
+.product-info p{
+    display:none;
+}
+
+.rating{
+    font-size:10px;
+    margin-bottom:4px;
+}
+
+.price{
+    margin:5px 0;
+}
+
+.price .currency{
+    font-size:7px;
+}
+
+.price .amount{
+    font-size:13px;
+    font-weight:700;
 }
 
 .product-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
 
-flex-direction:column;
-
+.buy-btn,
+.cart-btn{
+    padding:5px;
+    font-size:10px;
+    border-radius:5px;
 }
 
 }
 
-@media(max-width:500px){
+/* ===========================
+   VERY SMALL PHONES
+=========================== */
+
+@media (max-width:480px){
 
 .products{
-
-grid-template-columns:1fr;
-
+    grid-template-columns:repeat(3,1fr);
+    gap:6px;
 }
 
+.product-image{
+    height:80px;
+}
+
+.product-info{
+    padding:5px;
+}
+
+.product-info h3{
+    font-size:10px;
+    height:24px;
+}
+
+.rating{
+    font-size:9px;
+}
+
+.price{
+    margin:4px 0;
+}
+
+.price .currency{
+    font-size:6px;
+}
+
+.price .amount{
+    font-size:11px;
+    font-weight:700;
+}
+
+.buy-btn,
+.cart-btn{
+    font-size:9px;
+    padding:4px;
+}
+
+.wishlist-btn{
+    width:24px;
+    height:24px;
+    font-size:10px;
+}
+
+.discount-badge{
+    font-size:7px;
+}
 }
