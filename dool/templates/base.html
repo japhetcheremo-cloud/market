@@ -9,6 +9,8 @@
 
     <title>Cheremo Promised Shop</title>
 
+    <!-- ================= CSS ================= -->
+
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'navbar.css' %}">
     <link rel="stylesheet" href="{% static 'hero.css' %}">
@@ -16,74 +18,113 @@
     <link rel="stylesheet" href="{% static 'products.css' %}">
     <link rel="stylesheet" href="{% static 'footer.css' %}">
     <link rel="stylesheet" href="{% static 'responsive.css' %}">
-    <link rel="stylesheet" href="{% static 'categories.css' %}">
     <link rel="stylesheet" href="{% static 'buy.css' %}">
     <link rel="stylesheet" href="{% static 'cart.css' %}">
     <link rel="stylesheet" href="{% static 'login.css' %}">
     <link rel="stylesheet" href="{% static 'signup.css' %}">
     <link rel="stylesheet" href="{% static 'profile.css' %}">
 
-
 </head>
+
 
 <body>
 
-<!-- ================= TOP HEADER ================= -->
+<!-- =====================================================
+     TOP HEADER
+===================================================== -->
 
 <header class="top-header">
 
+    <!-- LOGO -->
+
     <div class="logo">
+
         <a href="{% url 'home' %}">
-            Cheremo <span>Promised Shop</span>
+            <span class="logo-red">Cheremo</span>
+            <span class="logo-black"> Promised Shop</span>
         </a>
+
     </div>
+
+
+    <!-- SEARCH -->
 
     <div class="search-area">
 
         <input
             type="text"
+            name="search"
             placeholder="Search products, brands and categories..."
         >
 
-        <button>
+        <button type="button">
             Search
         </button>
 
     </div>
 
+
+    <!-- HEADER LINKS -->
+
     <div class="header-icons">
 
         {% if user.is_authenticated %}
+
+            <!-- PROFILE -->
 
             <a href="{% url 'profile' %}">
                 👤 {{ user.username }}
             </a>
 
+
+            <!-- DASHBOARD -->
+
             <a href="{% url 'dashboard' %}">
                 Dashboard
             </a>
 
+
+            <!-- ADMIN -->
+
             {% if user.is_staff %}
+
                 <a href="{% url 'admin_dashboard' %}">
                     Admin
                 </a>
+
             {% endif %}
 
-            <form action="{% url 'logout' %}" method="post">
+
+            <!-- LOGOUT -->
+
+            <form
+                action="{% url 'logout' %}"
+                method="post"
+                class="logout-form"
+            >
 
                 {% csrf_token %}
 
-                <button class="logout-btn-nav">
+                <button
+                    type="submit"
+                    class="logout-btn-nav"
+                >
                     Logout
                 </button>
 
             </form>
 
+
         {% else %}
+
+            <!-- LOGIN -->
 
             <a href="{% url 'login' %}">
                 Login
             </a>
+
+
+            <!-- SIGN UP -->
 
             <a href="{% url 'signup' %}">
                 Sign Up
@@ -91,7 +132,15 @@
 
         {% endif %}
 
-        <button id="mode-toggle">
+
+        <!-- DARK MODE -->
+
+        <button
+            type="button"
+            id="mode-toggle"
+            aria-label="Toggle dark mode"
+            title="Toggle dark mode"
+        >
             🌙
         </button>
 
@@ -99,51 +148,169 @@
 
 </header>
 
-<!-- ================= MENU ================= -->
+
+<!-- =====================================================
+     MAIN NAVIGATION
+===================================================== -->
 
 <nav class="menu">
 
-    <a href="{% url 'home' %}">🏠 Home</a>
+    <!-- HOME -->
 
-    <a href="#">📂 Categories</a>
+    <a href="{% url 'home' %}">
+        🏠 Home
+    </a>
 
-    <a href="#">🔥 Deals</a>
 
-    <a href="#">🆕 New Arrivals</a>
+    <!-- CATEGORIES -->
 
-    <a href="#">❤️ Wishlist</a>
+    <a href="#">
+        📂 Categories
+    </a>
 
-    <a href="#">🛒 Cart</a>
 
-    <a href="#">📞 Contact</a>
+   <!-- DEALS -->
+
+<a href="{% url 'home' %}">
+    🔥 Deals
+</a>
+
+
+<!-- NEW ARRIVALS -->
+
+<a href="{% url 'home' %}">
+    🆕 New Arrivals
+</a>
+
+
+<!-- WISHLIST -->
+
+<a href="{% url 'home' %}">
+    ❤️ Wishlist
+</a>
+
+
+    <!-- CART -->
+
+    <a href="{% url 'cart' %}">
+        🛒 Cart
+    </a>
+
+
+    <!-- CONTACT -->
+
+    <a href="#">
+        📞 Contact
+    </a>
 
 </nav>
 
-{% block content %}
-{% endblock %}
 
-<a href="https://wa.me/254719678760"
-class="whatsapp-float"
-target="_blank">
+<!-- =====================================================
+     PAGE CONTENT
+===================================================== -->
 
-💬
+<main>
 
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+
+<!-- =====================================================
+     WHATSAPP FLOATING BUTTON
+===================================================== -->
+
+<a
+    href="https://wa.me/254719678760"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contact us on WhatsApp"
+>
+    💬
 </a>
+
+
+<!-- =====================================================
+     DARK MODE SCRIPT
+===================================================== -->
 
 <script>
 
-const btn=document.getElementById("mode-toggle");
+document.addEventListener("DOMContentLoaded", function () {
 
-btn.onclick=function(){
+    const modeToggle = document.getElementById("mode-toggle");
 
-document.body.classList.toggle("dark");
+    if (!modeToggle) {
+        return;
+    }
 
-}
+
+    /* ================================================
+       LOAD SAVED THEME
+    ================================================ */
+
+    const savedTheme = localStorage.getItem("theme");
+
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add("dark");
+
+        modeToggle.textContent = "☀️";
+
+    } else {
+
+        document.body.classList.remove("dark");
+
+        modeToggle.textContent = "🌙";
+
+    }
+
+
+    /* ================================================
+       TOGGLE DARK MODE
+    ================================================ */
+
+    modeToggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark");
+
+
+        /* Check current mode */
+
+        if (document.body.classList.contains("dark")) {
+
+            /* DARK MODE */
+
+            localStorage.setItem("theme", "dark");
+
+            modeToggle.textContent = "☀️";
+
+        } else {
+
+            /* LIGHT MODE */
+
+            localStorage.setItem("theme", "light");
+
+            modeToggle.textContent = "🌙";
+
+        }
+
+    });
+
+});
+
 </script>
 
 
-<script src="{% static 'js/slider.js' %}"></script>
+<!-- =====================================================
+     SLIDER JAVASCRIPT
+===================================================== -->
 
+<script src="{% static 'js/slider.js' %}"></script>
 
 
 </body>

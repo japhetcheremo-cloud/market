@@ -1,138 +1,441 @@
-.checkout-page{
-    width:90%;
-    margin:40px auto;
+/* =====================================================
+   CHECKOUT PAGE
+===================================================== */
+
+.checkout-page {
+    width: 92%;
+    max-width: 1150px;
+    margin: 25px auto;
 }
 
-.checkout-container{
-    display:grid;
-    grid-template-columns:1.2fr .8fr;
-    gap:40px;
+
+/* =====================================================
+   CHECKOUT CONTAINER
+===================================================== */
+
+.checkout-container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 24px;
+    align-items: start;
 }
 
-.product-preview{
-    background:#fff;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+/* =====================================================
+   PRODUCT PREVIEW
+===================================================== */
+
+.product-preview {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .07);
 }
 
-.product-preview img{
-    width:100%;
-    height:420px;
-    object-fit:cover;
+
+/* PRODUCT IMAGE */
+
+.product-preview img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    display: block;
 }
 
-.product-info{
-    padding:30px;
+
+/* =====================================================
+   PRODUCT INFORMATION
+===================================================== */
+
+.product-info {
+    padding: 20px;
 }
 
-.badge{
-    background:#e53935;
-    color:white;
-    padding:6px 15px;
-    border-radius:20px;
-    display:inline-block;
-    margin-bottom:15px;
+
+/* BADGE */
+
+.badge {
+    background: #e53935;
+    color: white;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    font-size: 13px;
 }
 
-.rating{
-    color:#ff9800;
-    margin:15px 0;
+
+/* RATING */
+
+.rating {
+    color: #ff9800;
+
+    margin: 10px 0;
+
+    font-size: 14px;
 }
 
-.price{
-    color:#e53935;
-    font-size:34px;
-    margin:15px 0;
+
+/* PRICE */
+
+.price {
+    color: #e53935;
+
+    font-size: 27px;
+
+    margin: 10px 0;
 }
 
-.features{
-    margin-top:25px;
+
+/* FEATURES */
+
+.features {
+    margin-top: 18px;
 }
 
-.features p{
-    margin:10px 0;
+
+.features p {
+    margin: 7px 0;
+
+    font-size: 14px;
 }
 
-.checkout-right{
-    background:#fff;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+/* =====================================================
+   CHECKOUT FORM
+===================================================== */
+
+.checkout-right {
+    background: #fff;
+
+    padding: 22px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .07);
 }
 
-.checkout-right h2{
-    margin-bottom:25px;
+
+/* TITLE */
+
+.checkout-right h2 {
+    margin: 0 0 18px;
+
+    font-size: 25px;
 }
 
-.checkout-right label{
-    display:block;
-    margin-top:18px;
-    margin-bottom:8px;
-    font-weight:600;
+
+/* LABELS */
+
+.checkout-right label {
+    display: block;
+
+    margin-top: 13px;
+
+    margin-bottom: 6px;
+
+    font-weight: 600;
+
+    font-size: 14px;
 }
 
-.checkout-right input{
-    width:100%;
-    padding:14px;
-    border:1px solid #ddd;
-    border-radius:8px;
+
+/* INPUTS */
+
+.checkout-right input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 11px 12px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    outline: none;
 }
 
-.order-summary{
-    margin-top:30px;
-    background:#f8f8f8;
-    padding:20px;
-    border-radius:10px;
+
+.checkout-right input:focus {
+    border-color: #e53935;
 }
 
-.summary-row{
-    display:flex;
-    justify-content:space-between;
-    margin:12px 0;
+
+/* =====================================================
+   ORDER SUMMARY
+===================================================== */
+
+.order-summary {
+    margin-top: 20px;
+
+    background: #f8f8f8;
+
+    padding: 15px;
+
+    border-radius: 9px;
 }
 
-.total{
-    font-size:20px;
+
+.summary-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin: 8px 0;
+
+    font-size: 14px;
 }
 
-.checkout-btn{
-    width:100%;
-    margin-top:25px;
-    padding:15px;
-    background:#25D366;
-    color:white;
-    border:none;
-    border-radius:8px;
-    font-size:17px;
-    cursor:pointer;
+
+.total {
+    font-size: 18px;
+
+    font-weight: 700;
 }
 
-.mpesa-btn{
-    width:100%;
-    margin-top:15px;
-    padding:15px;
-    background:#00A651;
-    color:white;
-    border:none;
-    border-radius:8px;
-    font-size:17px;
-    cursor:pointer;
+
+/* =====================================================
+   CHECKOUT BUTTON
+===================================================== */
+
+.checkout-btn {
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 12px;
+
+    background: #25D366;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s ease;
 }
+
+
+/* =====================================================
+   MPESA BUTTON
+===================================================== */
+
+.mpesa-btn {
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 12px;
+
+    background: #00A651;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+
+/* BUTTON HOVER */
 
 .checkout-btn:hover,
-.mpesa-btn:hover{
-    opacity:.9;
+.mpesa-btn:hover {
+    opacity: .9;
+
+    transform: translateY(-1px);
 }
 
-@media(max-width:900px){
 
-.checkout-container{
-grid-template-columns:1fr;
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .checkout-page {
+        width: 94%;
+
+        margin: 20px auto;
+    }
+
+
+    .checkout-container {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .product-preview img {
+        height: 300px;
+    }
+
+
+    .product-info {
+        padding: 18px;
+    }
+
+
+    .checkout-right {
+        padding: 20px;
+    }
+
 }
 
-.product-preview img{
-height:300px;
-}
+
+/* =====================================================
+   PHONE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .checkout-page {
+        width: 95%;
+
+        margin: 12px auto;
+    }
+
+
+    .checkout-container {
+        display: block;
+    }
+
+
+    /* PRODUCT IMAGE */
+
+    .product-preview img {
+        height: 220px;
+
+        object-fit: cover;
+    }
+
+
+    /* PRODUCT INFO */
+
+    .product-info {
+        padding: 15px;
+    }
+
+
+    .badge {
+        padding: 4px 10px;
+
+        font-size: 12px;
+    }
+
+
+    .rating {
+        margin: 7px 0;
+
+        font-size: 13px;
+    }
+
+
+    .price {
+        font-size: 23px;
+
+        margin: 8px 0;
+    }
+
+
+    .features {
+        margin-top: 13px;
+    }
+
+
+    .features p {
+        margin: 5px 0;
+
+        font-size: 13px;
+    }
+
+
+    /* CHECKOUT */
+
+    .checkout-right {
+        padding: 16px;
+
+        margin-top: 15px;
+
+        border-radius: 10px;
+    }
+
+
+    .checkout-right h2 {
+        font-size: 21px;
+
+        margin-bottom: 15px;
+    }
+
+
+    .checkout-right label {
+        font-size: 13px;
+
+        margin-top: 11px;
+
+        margin-bottom: 5px;
+    }
+
+
+    .checkout-right input {
+        padding: 10px;
+
+        font-size: 14px;
+    }
+
+
+    /* SUMMARY */
+
+    .order-summary {
+        margin-top: 15px;
+
+        padding: 12px;
+    }
+
+
+    .summary-row {
+        margin: 6px 0;
+
+        font-size: 13px;
+    }
+
+
+    .total {
+        font-size: 17px;
+    }
+
+
+    /* BUTTONS */
+
+    .checkout-btn,
+    .mpesa-btn {
+        padding: 11px;
+
+        font-size: 14px;
+    }
 
 }
