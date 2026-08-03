@@ -1,3 +1,4 @@
+
 from django.urls import path
 from django.contrib.auth import views as auth_views
 
@@ -7,11 +8,21 @@ from . import views
 urlpatterns = [
 
     # ===========================
-    # HOME
+    # WELCOME PAGE
     # ===========================
 
     path(
         "",
+        views.welcome,
+        name="welcome"
+    ),
+
+    # ===========================
+    # SHOP HOME
+    # ===========================
+
+    path(
+        "shop/",
         views.home,
         name="home"
     ),
@@ -41,23 +52,31 @@ urlpatterns = [
         views.add_to_cart,
         name="add_to_cart"
     ),
-path(
-    "cart/remove/<int:id>/",
-    views.remove_from_cart,
-    name="remove_from_cart"
-),
 
-path(
-    "cart/increase/<int:id>/",
-    views.increase_quantity,
-    name="increase_quantity"
-),
+    path(
+        "cart/remove/<int:id>/",
+        views.remove_from_cart,
+        name="remove_from_cart"
+    ),
 
-path(
-    "cart/decrease/<int:id>/",
-    views.decrease_quantity,
-    name="decrease_quantity"
-),
+    path(
+        "cart/increase/<int:id>/",
+        views.increase_quantity,
+        name="increase_quantity"
+    ),
+
+    path(
+        "cart/decrease/<int:id>/",
+        views.decrease_quantity,
+        name="decrease_quantity"
+    ),
+
+    path(
+        "checkout/",
+        views.checkout,
+        name="checkout"
+    ),
+
     # ===========================
     # AUTHENTICATION
     # ===========================
@@ -71,7 +90,8 @@ path(
     path(
         "login/",
         auth_views.LoginView.as_view(
-            template_name="login.html"
+            template_name="login.html",
+            next_page="/shop/"
         ),
         name="login"
     ),
@@ -109,3 +129,4 @@ path(
     ),
 
 ]
+

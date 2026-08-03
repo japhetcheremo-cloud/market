@@ -1,0 +1,663 @@
+/* =====================================================
+   CHEREMO PROMISED SHOP
+   WELCOME PAGE
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =====================================================
+   MAIN WELCOME PAGE
+===================================================== */
+
+.welcome-page {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    background: #111;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =====================================================
+   BACKGROUND SLIDER
+===================================================== */
+
+.welcome-slider {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 0;
+}
+
+.welcome-slide {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+
+    transform: scale(1.08);
+
+    transition:
+        opacity 0.7s ease-in-out,
+        transform 4s ease;
+}
+
+.welcome-slide.active {
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+.welcome-slide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =====================================================
+   DARK OVERLAY
+===================================================== */
+
+.welcome-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.90) 0%,
+            rgba(0, 0, 0, 0.70) 45%,
+            rgba(0, 0, 0, 0.42) 100%
+        );
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.welcome-header {
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+
+    padding: 25px 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.welcome-logo {
+    font-size: 25px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+}
+
+.logo-red {
+    color: #ff3b30;
+}
+
+.logo-white {
+    color: white;
+}
+
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+
+.welcome-content {
+    position: relative;
+
+    z-index: 5;
+
+    width: 90%;
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding: 40px 0 70px;
+}
+
+
+/* =====================================================
+   BADGE
+===================================================== */
+
+.welcome-badge {
+    display: inline-block;
+
+    padding: 9px 17px;
+
+    margin-bottom: 20px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.13);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    backdrop-filter: blur(10px);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   MAIN HEADING
+===================================================== */
+
+.welcome-content h1 {
+    max-width: 850px;
+
+    font-size: clamp(42px, 6vw, 78px);
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    margin-bottom: 18px;
+
+    text-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.35);
+}
+
+.welcome-content h1 span {
+    display: block;
+
+    color: #ff3b30;
+}
+
+
+/* =====================================================
+   TYPING TEXT
+===================================================== */
+
+.typing-container {
+    min-height: 34px;
+
+    margin-bottom: 18px;
+
+    font-size: clamp(18px, 2vw, 25px);
+
+    font-weight: 600;
+
+    color: #ffffff;
+}
+
+#typing-text {
+    color: #ffd54f;
+}
+
+.typing-cursor {
+    display: inline-block;
+
+    margin-left: 3px;
+
+    color: #ffffff;
+
+    font-weight: 400;
+
+    animation: cursorBlink 0.7s infinite;
+}
+
+@keyframes cursorBlink {
+
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    46%,
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.welcome-description {
+    max-width: 700px;
+
+    margin-bottom: 28px;
+
+    color: rgba(255, 255, 255, 0.88);
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   FEATURES
+===================================================== */
+
+.welcome-features {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    max-width: 950px;
+
+    margin-bottom: 30px;
+}
+
+.feature {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 285px;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.3s ease;
+}
+
+.feature:hover {
+    background: rgba(255, 255, 255, 0.16);
+
+    transform: translateY(-4px);
+}
+
+.feature-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.14);
+
+    font-size: 20px;
+}
+
+.feature strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 14px;
+}
+
+.feature p {
+    color: rgba(255, 255, 255, 0.70);
+
+    font-size: 12px;
+
+    line-height: 1.4;
+}
+
+
+/* =====================================================
+   LOGIN / SIGNUP SECTION
+===================================================== */
+
+.welcome-action {
+    width: 100%;
+    max-width: 550px;
+
+    margin-top: 10px;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background: rgba(0, 0, 0, 0.38);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(15px);
+}
+
+.welcome-action h2 {
+    margin-bottom: 7px;
+
+    font-size: 23px;
+}
+
+.welcome-action > p {
+    margin-bottom: 18px;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.welcome-buttons {
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.welcome-buttons a {
+    min-width: 150px;
+
+    padding: 13px 22px;
+
+    border-radius: 8px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.welcome-login {
+    background: #ff3b30;
+
+    color: white;
+
+    border: 1px solid #ff3b30;
+}
+
+.welcome-login:hover {
+    background: #e52c22;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(255, 59, 48, 0.30);
+}
+
+.welcome-signup {
+    background: white;
+
+    color: #222;
+
+    border: 1px solid white;
+}
+
+.welcome-signup:hover {
+    background: #f1f1f1;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(255, 255, 255, 0.20);
+}
+
+
+/* =====================================================
+   LOGIN NOTE
+===================================================== */
+
+.welcome-action .welcome-login-note {
+    margin-top: 15px;
+
+    margin-bottom: 0;
+
+    font-size: 12px;
+
+    color: rgba(255, 255, 255, 0.60);
+}
+
+.welcome-login-note a {
+    color: #ffd54f;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.welcome-login-note a:hover {
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.welcome-footer {
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+
+    padding: 15px 20px;
+
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .welcome-content {
+        padding-top: 20px;
+    }
+
+    .welcome-features {
+        max-width: 650px;
+    }
+
+    .feature {
+        width: calc(50% - 8px);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .welcome-page {
+        min-height: 100svh;
+    }
+
+    .welcome-header {
+        padding: 18px 5%;
+    }
+
+    .welcome-logo {
+        font-size: 19px;
+    }
+
+    .welcome-content {
+        width: 90%;
+
+        padding: 20px 0 40px;
+    }
+
+    .welcome-badge {
+        font-size: 9px;
+
+        padding: 8px 12px;
+
+        margin-bottom: 15px;
+    }
+
+    .welcome-content h1 {
+        font-size: 40px;
+
+        line-height: 1.08;
+    }
+
+    .typing-container {
+        font-size: 17px;
+
+        min-height: 27px;
+    }
+
+    .welcome-description {
+        font-size: 14px;
+
+        line-height: 1.6;
+
+        margin-bottom: 20px;
+    }
+
+    .welcome-features {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+
+        margin-bottom: 20px;
+    }
+
+    .feature {
+        width: 100%;
+
+        padding: 11px;
+    }
+
+    .feature-icon {
+        width: 36px;
+        height: 36px;
+
+        font-size: 17px;
+    }
+
+    .feature p {
+        font-size: 11px;
+    }
+
+    .welcome-action {
+        padding: 18px;
+
+        border-radius: 14px;
+    }
+
+    .welcome-action h2 {
+        font-size: 19px;
+    }
+
+    .welcome-action > p {
+        font-size: 12px;
+    }
+
+    .welcome-buttons {
+        flex-direction: column;
+    }
+
+    .welcome-buttons a {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+    .welcome-footer {
+        font-size: 9px;
+
+        padding-bottom: 10px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media (max-height: 700px) and (max-width: 600px) {
+
+    .welcome-content {
+        padding-top: 5px;
+    }
+
+    .welcome-content h1 {
+        font-size: 32px;
+    }
+
+    .welcome-description {
+        margin-bottom: 12px;
+    }
+
+    .feature {
+        padding: 8px;
+    }
+
+    .welcome-action {
+        padding: 13px;
+    }
+
+}

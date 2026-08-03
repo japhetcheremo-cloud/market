@@ -29,6 +29,22 @@ def home(request):
             "cart_count": cart_count,
         },
     )
+# ===========================
+# WELCOME PAGE
+# ===========================
+
+def welcome(request):
+
+    # If the customer is already logged in,
+    # take them directly to the shop.
+
+    if request.user.is_authenticated:
+        return redirect("home")
+
+    return render(
+        request,
+        "welcome.html"
+    )
 
 
 # ===========================
@@ -173,6 +189,71 @@ Location: {location}
         "buy.html",
         {
             "product": product,
+        },
+    )
+# ===========================
+# CHECKOUT
+# ===========================
+
+@login_required
+def checkout(request):
+
+    cart_items = Cart.objects.filter(user=request.user)
+
+    if not cart_items.exists():
+        return redirect("cart")
+
+    total = sum(item.subtotal() for item in cart_items)
+
+    if request.method == "POST":
+
+        name = request.POST.get("name")
+        phone = request.POST.get("phone")
+        location = request.POST.get("location")
+
+        message = """
+🛒 NEW CART ORDER
+
+"""
+
+        for item in cart_items:
+
+            message += f"""
+Product: {item.product.name}
+Price: KSh {item.product.price}
+Quantity: {item.quantity}
+Subtotal: KSh {item.subtotal()}
+
+"""
+
+        message += f"""
+TOTAL: KSh {total}
+
+Customer Name: {name}
+Phone: {phone}
+Location: {location}
+"""
+
+        whatsapp_number = "254719678760"
+
+        whatsapp_link = (
+            f"https://wa.me/{whatsapp_number}?text={quote(message)}"
+        )
+
+        return render(
+            request,
+            "redirect.html",
+            {
+                "whatsapp_link": whatsapp_link,
+            },
+        )
+
+    return render(
+        request,
+        "checkout.html",
+        {
+            "cart_items": cart_items,
+            "total": total,
         },
     )
 

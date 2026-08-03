@@ -1,0 +1,274 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Welcome | Cheremo Promised Shop</title>
+
+    <link rel="stylesheet"
+          href="{% static 'welcome.css' %}">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     WELCOME PAGE
+===================================================== -->
+
+<div class="welcome-page">
+
+
+    <!-- =================================================
+         BACKGROUND SLIDER
+    ================================================== -->
+
+    <div class="welcome-slider">
+
+        <div class="welcome-slide active">
+            <img src="{% static 'images/shop1.png' %}"
+                 alt="Cheremo Promised Shop">
+        </div>
+
+        <div class="welcome-slide">
+            <img src="{% static 'images/shop2.png' %}"
+                 alt="Quality products">
+        </div>
+
+        <div class="welcome-slide">
+            <img src="{% static 'images/shop3.png' %}"
+                 alt="Online shopping">
+        </div>
+
+        <div class="welcome-slide">
+            <img src="{% static 'images/shop4.png' %}"
+                 alt="Products">
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         DARK OVERLAY
+    ================================================== -->
+
+    <div class="welcome-overlay"></div>
+
+
+    <!-- =================================================
+         TOP LOGO
+    ================================================== -->
+
+    <header class="welcome-header">
+
+        <div class="welcome-logo">
+
+            <span class="logo-red">
+                Cheremo
+            </span>
+
+            <span class="logo-white">
+                Promised Shop
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <!-- =================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="welcome-content">
+
+        <div class="welcome-badge">
+            🛍️ YOUR ONLINE SHOPPING DESTINATION
+        </div>
+
+
+        <h1>
+            Welcome to
+            <span>Cheremo Promised Shop</span>
+        </h1>
+
+
+        <!-- TYPING TEXT -->
+
+        <div class="typing-container">
+
+            <span id="typing-text"></span>
+
+            <span class="typing-cursor">
+                |
+            </span>
+
+        </div>
+
+
+        <!-- DESCRIPTION -->
+
+        <p class="welcome-description">
+
+            Discover quality products at affordable prices
+            and enjoy a simple, convenient and reliable
+            shopping experience from the comfort of your home.
+
+        </p>
+
+
+        <!-- FEATURES -->
+
+        <div class="welcome-features">
+
+            <div class="feature">
+
+                <span class="feature-icon">
+                    🚚
+                </span>
+
+                <div>
+
+                    <strong>
+                        Doorstep Delivery
+                    </strong>
+
+                    <p>
+                        We deliver your purchases
+                        conveniently to your doorstep.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <span class="feature-icon">
+                    💰
+                </span>
+
+                <div>
+
+                    <strong>
+                        Affordable Prices
+                    </strong>
+
+                    <p>
+                        Shop quality products
+                        at prices you can afford.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <span class="feature-icon">
+                    ⚡
+                </span>
+
+                <div>
+
+                    <strong>
+                        Easy Shopping
+                    </strong>
+
+                    <p>
+                        Find what you need and
+                        order with just a few clicks.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             LOGIN / SIGNUP AREA
+        ================================================== -->
+
+        <div class="welcome-action">
+
+            <h2>
+                Ready to start shopping?
+            </h2>
+
+            <p>
+                Create an account or log in to
+                continue shopping with us.
+            </p>
+
+
+            <div class="welcome-buttons">
+
+                <a href="{% url 'login' %}"
+                   class="welcome-login">
+
+                    🔐 Login
+
+                </a>
+
+
+                <a href="{% url 'signup' %}"
+                   class="welcome-signup">
+
+                    ✨ Create Account
+
+                </a>
+
+            </div>
+
+
+            <p class="welcome-login-note">
+
+                Already have an account?
+                <a href="{% url 'login' %}">
+                    Login here
+                </a>
+
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================== -->
+
+    <footer class="welcome-footer">
+
+        <p>
+            © 2026 Cheremo Promised Shop.
+            Quality • Affordable • Convenient.
+        </p>
+
+    </footer>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="{% static 'js/welcome.js' %}"></script>
+
+
+</body>
+
+</html>

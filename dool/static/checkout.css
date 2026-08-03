@@ -1,0 +1,345 @@
+/* =====================================================
+   CHECKOUT PAGE
+===================================================== */
+
+.checkout-page {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding-bottom: 60px;
+}
+
+.checkout-page > h1 {
+    font-size: 34px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+
+/* =====================================================
+   CHECKOUT CONTAINER
+===================================================== */
+
+.checkout-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 30px;
+    align-items: start;
+}
+
+
+/* =====================================================
+   ORDER SUMMARY
+===================================================== */
+
+.checkout-summary {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.checkout-summary h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 25px;
+}
+
+
+/* =====================================================
+   CHECKOUT ITEM
+===================================================== */
+
+.checkout-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.checkout-item:last-of-type {
+    border-bottom: none;
+}
+
+.checkout-item img {
+    width: 100px;
+    height: 100px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+}
+
+.checkout-item h3 {
+    margin: 0 0 8px;
+
+    font-size: 20px;
+    color: #333;
+}
+
+.checkout-item p {
+    margin: 5px 0;
+
+    color: #666;
+    font-size: 15px;
+}
+
+.checkout-item strong {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #e93636;
+    font-size: 17px;
+}
+
+
+/* =====================================================
+   TOTAL
+===================================================== */
+
+.checkout-total {
+    margin-top: 25px;
+    padding-top: 20px;
+
+    border-top: 2px solid #eeeeee;
+}
+
+.checkout-total h2 {
+    margin: 0;
+
+    color: #e93636;
+    font-size: 28px;
+}
+
+
+/* =====================================================
+   CUSTOMER FORM
+===================================================== */
+
+.checkout-form {
+    background: #ffffff;
+
+    padding: 30px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.checkout-form h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+
+    color: #333;
+    font-size: 25px;
+}
+
+
+/* =====================================================
+   FORM LABELS
+===================================================== */
+
+.checkout-form label {
+    display: block;
+
+    margin-top: 18px;
+    margin-bottom: 8px;
+
+    font-weight: 600;
+    color: #333;
+}
+
+
+/* =====================================================
+   FORM INPUTS
+===================================================== */
+
+.checkout-form input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 14px 15px;
+
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+.checkout-form input:focus {
+    border-color: #e93636;
+
+    box-shadow: 0 0 0 3px rgba(233, 54, 54, 0.10);
+}
+
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
+
+.checkout-submit {
+    width: 100%;
+
+    margin-top: 28px;
+
+    padding: 15px 20px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #00a651;
+    color: white;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.checkout-submit:hover {
+    background: #008f45;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 15px rgba(0, 166, 81, 0.25);
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark .checkout-page > h1 {
+    color: #ffffff;
+}
+
+body.dark .checkout-summary,
+body.dark .checkout-form {
+    background: #1f1f1f;
+}
+
+body.dark .checkout-summary h2,
+body.dark .checkout-form h2,
+body.dark .checkout-item h3,
+body.dark .checkout-form label {
+    color: #ffffff;
+}
+
+body.dark .checkout-item {
+    border-color: #3a3a3a;
+}
+
+body.dark .checkout-item p {
+    color: #bbbbbb;
+}
+
+body.dark .checkout-total {
+    border-color: #3a3a3a;
+}
+
+body.dark .checkout-form input {
+    background: #2b2b2b;
+    color: #ffffff;
+
+    border-color: #444444;
+}
+
+body.dark .checkout-form input::placeholder {
+    color: #999999;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .checkout-container {
+        grid-template-columns: 1fr;
+    }
+
+    .checkout-summary,
+    .checkout-form {
+        padding: 25px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .checkout-page {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    .checkout-page > h1 {
+        font-size: 27px;
+        margin-bottom: 20px;
+    }
+
+    .checkout-summary,
+    .checkout-form {
+        padding: 20px;
+
+        border-radius: 12px;
+    }
+
+    .checkout-summary h2,
+    .checkout-form h2 {
+        font-size: 21px;
+    }
+
+    .checkout-item {
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .checkout-item img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .checkout-item h3 {
+        font-size: 17px;
+    }
+
+    .checkout-item p {
+        font-size: 14px;
+    }
+
+    .checkout-item strong {
+        font-size: 15px;
+    }
+
+    .checkout-total h2 {
+        font-size: 23px;
+    }
+
+    .checkout-form input {
+        padding: 13px;
+        font-size: 15px;
+    }
+
+    .checkout-submit {
+        font-size: 15px;
+        padding: 14px;
+    }
+
+}

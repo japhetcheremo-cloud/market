@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="checkout-page">
+
+    <h1>💳 Checkout</h1>
+
+    <div class="checkout-container">
+
+        <!-- ORDER SUMMARY -->
+
+        <div class="checkout-summary">
+
+            <h2>Your Order</h2>
+
+            {% for item in cart_items %}
+
+            <div class="checkout-item">
+
+                <img
+                    src="{{ item.product.image.url }}"
+                    alt="{{ item.product.name }}"
+                >
+
+                <div>
+
+                    <h3>{{ item.product.name }}</h3>
+
+                    <p>
+                        Quantity: {{ item.quantity }}
+                    </p>
+
+                    <p>
+                        Price: KSh {{ item.product.price }}
+                    </p>
+
+                    <strong>
+                        Subtotal: KSh {{ item.subtotal }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+            <div class="checkout-total">
+
+                <h2>
+                    Total: KSh {{ total }}
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <!-- CUSTOMER DETAILS -->
+
+        <div class="checkout-form">
+
+            <h2>Customer Details</h2>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <label>
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+
+                <label>
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="07XXXXXXXX"
+                    required
+                >
+
+
+                <label>
+                    Delivery Location
+                </label>
+
+                <input
+                    type="text"
+                    name="location"
+                    placeholder="Enter your delivery location"
+                    required
+                >
+
+
+                <button
+                    type="submit"
+                    class="checkout-submit"
+                >
+                    📱 Place Order via WhatsApp
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
